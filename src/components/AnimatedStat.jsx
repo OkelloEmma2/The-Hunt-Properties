@@ -1,42 +1,43 @@
 import { useEffect, useRef, useState } from 'react'
 
-function useCountUp(target, duration = 1800, start) {
+function useCountUp(target, duration = 1800, run) {
   const [value, setValue] = useState(0)
   useEffect(() => {
-    if (!start) return
+    if (!run) { setValue(0); return }        // reset when scrolled out of view
     let raf
     const t0 = performance.now()
     const tick = (now) => {
       const p = Math.min((now - t0) / duration, 1)
-      const eased = 1 - Math.pow(1 - p, 3) // ease-out: fast start, smooth landing
+      const eased = 1 - Math.pow(1 - p, 3)   // ease-out curve
       setValue(Math.round(eased * target))
       if (p < 1) raf = requestAnimationFrame(tick)
     }
     raf = requestAnimationFrame(tick)
     return () => cancelAnimationFrame(raf)
-  }, [start, target, duration])
+  }, [run, target, duration])
   return value
 }
 
 export default function AnimatedStat({ value, suffix = '', label }) {
   const ref = useRef(null)
-  const [visible, setVisible] = useState(false)
-  const count = useCountUp(value, 1800, visible)
+  const [inView, setInView] = useState(false)
+  const count = useCountUp(value, 1800, inView)
 
-  // Trigger the animation only once the stat enters the viewport
+  // Observer never disconnects — it keeps watching so the
+  // animation replays on every scroll up/down
   useEffect(() => {
+    const el = ref.current
+    if (!el) return
     const obs = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) { setVisible(true); obs.disconnect() }
-      },
-      { threshold: 0.4 }
+      ([entry]) => setInView(entry.isIntersecting),
+      { threshold: 0.3 }
     )
-    if (ref.current) obs.observe(ref.current)
+    obs.observe(el)
     return () => obs.disconnect()
   }, [])
 
   return (
-    <div className={`stat ${visible ? 'stat-in' : ''}`} ref={ref}>
+    <div className={`stat ${inView ? 'stat-in' : ''}`} ref={ref}>
       <b>{count}{suffix}</b>
       <span>{label}</span>
     </div>

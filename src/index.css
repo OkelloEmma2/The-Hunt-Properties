@@ -60,7 +60,12 @@ h1,h2,h3,h4{color:var(--g900);line-height:1.25;font-weight:700}
 .nav-toggle{display:none;background:none;border:none;color:var(--g900);cursor:pointer}
 
 /* Hero */
-.hero{background:linear-gradient(135deg,var(--g900) 0%,var(--g700) 60%,var(--g600) 100%);color:var(--white);padding:90px 0 130px;position:relative;overflow:hidden}
+.hero{
+  position:relative;color:var(--white);padding:90px 0 130px;overflow:hidden;
+  background:
+    linear-gradient(120deg, rgba(5,46,22,.94) 0%, rgba(20,83,45,.88) 45%, rgba(22,163,74,.72) 100%),
+    url('/images/hero-house.jpg') center/cover no-repeat;
+}
 .hero::before{content:'';position:absolute;width:420px;height:420px;border-radius:50%;background:rgba(255,255,255,.08);top:-140px;right:-120px}
 .hero::after{content:'';position:absolute;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,.06);bottom:-160px;left:-80px}
 .hero-inner{position:relative;z-index:1;max-width:780px}
@@ -251,3 +256,5 @@ h1,h2,h3,h4{color:var(--g900);line-height:1.25;font-weight:700}
   .gal-thumbs{grid-template-columns:repeat(4,1fr)}
   .edit-inline{grid-template-columns:1fr}
 }
+.stat{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.stat.stat-in{opacity:1;transform:none}

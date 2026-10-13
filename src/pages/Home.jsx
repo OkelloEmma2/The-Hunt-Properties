@@ -6,6 +6,7 @@ import PropertyCard from '../components/PropertyCard'
 import AppPromo from '../components/AppPromo'
 import AdBanner from '../components/Adbanner'
 import { DISTRICTS } from '../data/properties'
+import AnimatedStat from '../components/AnimatedStat'
 
 export default function Home() {
   const { listings } = useListings()
@@ -30,7 +31,7 @@ export default function Home() {
       <section className="hero">
         <div className="container">
           <div className="hero-inner">
-            <h1>Find Land, Houses &amp; Apartments Across Uganda</h1>
+            <h1>Find Uganda's Perfect Property | Land, Houses &amp; Apartments</h1>
             <p>The Hunt Properties Limited connects verified buyers and tenants with genuine property owners in Kampala, Wakiso, Entebbe and beyond.</p>
           </div>
           <form className="hero-search" onSubmit={search}>
@@ -58,10 +59,10 @@ export default function Home() {
             </div>
           </form>
           <div className="hero-stats">
-            <div className="stat"><b>{listings.filter(l => l.status === 'approved').length}+</b><span>Active listings</span></div>
-            <div className="stat"><b>5+</b><span>Districts covered</span></div>
-            <div className="stat"><b>100%</b><span>Verified ownership checks</span></div>
-          </div>
+  <AnimatedStat value={listings.filter(l => l.status === 'approved').length} suffix="+" label="Active listings" />
+  <AnimatedStat value={5} suffix="+" label="Districts covered" />
+  <AnimatedStat value={100} suffix="%" label="Verified ownership checks" />
+</div>
         </div>
       </section>
 

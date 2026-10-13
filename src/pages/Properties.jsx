@@ -4,7 +4,7 @@ import { SearchX } from 'lucide-react'
 import { useListings } from '../context/ListingsContext'
 import SearchFilters from '../components/SearchFilters'
 import PropertyCard from '../components/PropertyCard'
-import AdBanner from '../components/AdBanner'
+import AdBanner from '../components/Adbanner'
 
 export default function Properties() {
   const [params] = useSearchParams()

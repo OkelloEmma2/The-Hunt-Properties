@@ -4,7 +4,7 @@ import { ShieldCheck, MessageCircle, FileText, ArrowRight, Search } from 'lucide
 import { useListings } from '../context/ListingsContext'
 import PropertyCard from '../components/PropertyCard'
 import AppPromo from '../components/AppPromo'
-import AdBanner from '../components/AdBanner'
+import AdBanner from '../components/Adbanner'
 import { DISTRICTS } from '../data/properties'
 
 export default function Home() {

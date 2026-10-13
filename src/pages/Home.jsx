@@ -58,7 +58,7 @@ export default function Home() {
               <button className="btn btn-primary" type="submit"><Search size={17} /> Search Properties</button>
             </div>
           </form>
-          <div className="hero-stats">
+<div className="hero-stats">
   <AnimatedStat value={listings.filter(l => l.status === 'approved').length} suffix="+" label="Active listings" />
   <AnimatedStat value={5} suffix="+" label="Districts covered" />
   <AnimatedStat value={100} suffix="%" label="Verified ownership checks" />

@@ -63,8 +63,8 @@ h1,h2,h3,h4{color:var(--g900);line-height:1.25;font-weight:700}
 .hero{
   position:relative;color:var(--white);padding:90px 0 130px;overflow:hidden;
   background:
-    linear-gradient(120deg, rgba(5,46,22,.94) 0%, rgba(20,83,45,.88) 45%, rgba(22,163,74,.72) 100%),
-    url('/images/hero-house.jpg') center/cover no-repeat;
+  linear-gradient(120deg, rgba(5,46,22,.85) 0%, rgba(20,83,45,.65) 45%, rgba(22,163,74,.45) 100%),
+  url('/images/hero-house.jpg') center/cover no-repeat;
 }
 .hero-inner{position:relative;z-index:1;max-width:780px}
 .hero h1{color:var(--white);font-size:clamp(2.1rem,4.6vw,3.3rem);margin-bottom:16px}

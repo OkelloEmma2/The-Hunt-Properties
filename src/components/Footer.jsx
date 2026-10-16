@@ -3,7 +3,6 @@ import { Home, MapPin, Phone, Mail, Apple, Play } from 'lucide-react'
 import { COMPANY_PHONE_DISPLAY } from '../utils/whatsapp'
 
 const quickLinks = [
-  ['/', 'Home'], ['/properties', 'Properties'], ['/list-your-property', 'List Your Property'],
   ['/blog', 'Blog'], ['/about', 'About'], ['/contact', 'Contact'],
 ]
 const legalLinks = [['/privacy-policy', 'Privacy Policy'], ['/terms', 'Terms of Service']]

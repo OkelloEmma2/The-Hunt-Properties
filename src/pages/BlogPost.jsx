@@ -1,12 +1,12 @@
 import { Link, useParams } from 'react-router-dom'
 import { MessageCircle, ArrowLeft } from 'lucide-react'
-import { posts } from '../data/posts'
+import { useListings } from '../context/ListingsContext'
 import { waLink } from '../utils/whatsapp'
 
 export default function BlogPost() {
   const { slug } = useParams()
   const post = posts.find(p => p.slug === slug)
-
+  const { posts } = useListings()
   if (!post) return (
     <section className="section"><div className="container notfound">
       <h1>404</h1><h2>Article not found</h2>

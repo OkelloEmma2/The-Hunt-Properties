@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom'
 import { Clock } from 'lucide-react'
-import { posts } from '../data/posts'
+import { useListings } from '../context/ListingsContext'
 
 export default function Blog() {
+  const { posts } = useListings()
   return (
     <>
       <div className="page-head"><div className="container">

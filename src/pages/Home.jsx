@@ -91,7 +91,6 @@ export default function Home() {
           <div className="grid grid-3">
             <div className="card why-card"><div className="why-icon"><ShieldCheck size={24} /></div><h3>Verified Listings Only</h3><p>Every property passes through our admin verification review before it appears on the platform.</p></div>
             <div className="card why-card"><div className="why-icon"><MessageCircle size={24} /></div><h3>Direct WhatsApp Leads</h3><p>One tap sends your inquiry straight to the owner or our agents on WhatsApp — no middlemen.</p></div>
-            <div className="card why-card"><div className="why-icon"><FileText size={24} /></div><h3>List Your Property Free</h3><p>Owners and agents submit details, photos and title documents in minutes through our portal.</p></div>
           </div>
         </div>
       </section>
@@ -100,14 +99,14 @@ export default function Home() {
 
       <AppPromo />
 
-      <section className="section">
-        <div className="container">
-          <div className="cta-band">
-            <div><h2>Own property? Let thousands of buyers find it.</h2><p>Submit your listing today — approval within 24 hours.</p></div>
-            <Link to="/list-your-property" className="btn btn-light btn-lg">Submit Your Listing <ArrowRight size={17} /></Link>
-          </div>
-        </div>
-      </section>
+    <section className="section">
+  <div className="container">
+    <div className="cta-band">
+      <div><h2>Can't find what you're hunting for?</h2><p>Tell our agents what you need — we'll find it and match you directly.</p></div>
+      <Link to="/contact" className="btn btn-light btn-lg">Talk to an Agent</Link>
+    </div>
+  </div>
+</section>
     </>
   )
 }

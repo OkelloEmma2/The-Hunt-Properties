@@ -18,7 +18,6 @@ function Logo({ size = 34 }) {
 const links = [
   { to: '/', label: 'Home' },
   { to: '/properties', label: 'Listings' },
-  { to: '/contact', label: 'Contact' },   // routes owners to the team (admin publishes)
   { to: '/about', label: 'About Us' },
   { to: '/blog', label: 'Partners' },           // swap to a dedicated Partners page later if you build one
 ]
@@ -29,7 +28,10 @@ export default function Navbar() {
     <header className="navbar">
       <div className="container nav-inner">
         <Link to="/" className="brand" onClick={() => setOpen(false)}>
-          <span className="brand-logo"><Logo /></span>
+          <img
+  src="/logo.png"
+  style={{ width: 56, height: 56, borderRadius: 12, objectFit: 'cover', flexShrink: 0 }}
+/>
           <span style={{ lineHeight: 1.15 }}>
             The Hunt<br />
             <small style={{ fontSize: '.66rem', fontWeight: 600, letterSpacing: '.04em', color: 'var(--g800)' }}>
@@ -43,7 +45,7 @@ export default function Navbar() {
               {l.label}
             </NavLink>
           ))}
-          <Link to="/contact" className="nav-post" onClick={() => setOpen(false)}>Post a Property</Link>
+          <Link to="/contact" className="nav-post" onClick={() => setOpen(false)}>Contact Us</Link>
         </nav>
         <button className="nav-toggle" onClick={() => setOpen(!open)} aria-label="Toggle menu">
           {open ? <X size={26} /> : <Menu size={26} />}

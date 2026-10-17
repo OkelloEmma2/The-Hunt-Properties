@@ -41,7 +41,7 @@ export default function Footer() {
             <ul className="footer-links" style={{ marginTop: 16 }}>
               <li><MapPin size={14} /> Plot 12, Kampala Road, Kampala</li>
               <li><Phone size={14} /> {COMPANY_PHONE_DISPLAY}</li>
-              <li><Mail size={14} /> info@thehuntproperties.com</li>
+              <li><Mail size={14} /> huntpropertiessales@gmail.com</li>
             </ul>
           </div>
         </div>

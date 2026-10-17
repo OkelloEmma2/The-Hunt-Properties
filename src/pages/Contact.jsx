@@ -51,7 +51,7 @@ export default function Contact() {
             <h3>Reach us directly</h3>
             <p className="prop-loc" style={{ marginTop: 12 }}><MapPin size={16} /> Plot 12, Kampala Road, Kampala, Uganda</p>
             <p className="prop-loc"><Phone size={16} /> {COMPANY_PHONE_DISPLAY}</p>
-            <p className="prop-loc"><Mail size={16} /> info@thehuntproperties.com</p>
+            <p className="prop-loc"><Mail size={16} /> huntpropertiessales@gmail.com</p>
             <a className="btn btn-primary" style={{ marginTop: 18, justifyContent: 'center' }} href={waLink('Hello The Hunt Properties, I have an enquiry.')} target="_blank" rel="noreferrer">
               <MessageCircle size={16} /> WhatsApp Us
             </a>

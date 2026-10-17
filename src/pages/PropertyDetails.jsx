@@ -117,7 +117,7 @@ export default function PropertyDetails() {
               <a className="btn btn-primary btn-lg" href={waLink(message)} target="_blank" rel="noreferrer">
                 <MessageCircle size={18} /> Inquire on WhatsApp
               </a>
-              <a className="btn btn-ghost" href={`tel:${(p.agentPhone || '+256700000000').replace(/\s/g, '')}`}>
+              <a className="btn btn-ghost" href={`tel:${(p.agentPhone || '+256766306132').replace(/\s/g, '')}`}>
                 <Phone size={16} /> Call Agent
               </a>
             </div>

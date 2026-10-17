@@ -62,7 +62,6 @@ h1,h2,h3,h4{color:var(--g950);line-height:1.22;font-weight:700}
 .nav-cta{margin-left:6px}
 .nav-toggle{display:none;background:none;border:none;color:var(--g950);cursor:pointer}
 
-/* ===== HERO — white, split layout, clean framed photo ===== */
 .hero{position:relative;background:linear-gradient(180deg,var(--g50) 0%,var(--white) 100%);padding:76px 0 96px;overflow:hidden}
 .hero::before{content:'';position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(34,197,94,.14),transparent 65%);top:-180px;right:-140px;pointer-events:none}
 .hero::after{content:'';position:absolute;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(22,163,74,.10),transparent 65%);bottom:-160px;left:-120px;pointer-events:none}
@@ -316,7 +315,6 @@ h1,h2,h3,h4{color:var(--g950);line-height:1.22;font-weight:700}
 .hero::before,.hero::after{display:none}
 .hero-bg{position:absolute;inset:0}
 .hero-bg img{width:100%;height:100%;object-fit:cover}
-.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,46,22,.6) 0%,rgba(5,46,22,.35) 45%,rgba(5,46,22,.65) 100%)}
 .hero-inner{position:relative;z-index:1;text-align:center;padding:108px 0 92px}
 .hero-inner h1{color:var(--white);font-size:clamp(1.7rem,3.6vw,2.7rem);text-transform:uppercase;max-width:840px;margin:0 auto 34px;text-shadow:0 2px 20px rgba(0,0,0,.35);animation:fadeUp .7s ease both}
 .hero-search{margin:0 auto;max-width:900px;background:var(--white);border-radius:14px;box-shadow:0 24px 60px rgba(5,46,22,.4);padding:9px;display:flex;align-items:center;animation:fadeUp .7s ease .15s both}

@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import {
-  MapPin, Building2, CircleDollarSign, User, Search,
+  MapPin, Building2, User, Search, X, SearchX, ArrowRight,
   HousePlus, Home as HomeIcon, Apple, Play,
 } from 'lucide-react'
 import { useListings } from '../context/ListingsContext'
@@ -11,26 +11,33 @@ import { waLink } from '../utils/whatsapp'
 
 export default function Home() {
   const { listings } = useListings()
-  const navigate = useNavigate()
   const [q, setQ] = useState('')
   const [category, setCategory] = useState('')
-  const [price, setPrice] = useState('')
   const [status, setStatus] = useState('Buy')
+  const [searched, setSearched] = useState(false)
+  const [results, setResults] = useState([])
 
   const published = listings.filter(l => l.status === 'approved')
   const featured = published.filter(l => l.featured).slice(0, 4)
 
-  // Typing + filters combined → results open on the Properties page
   const search = (e) => {
     e.preventDefault()
-    const p = new URLSearchParams()
-    if (q) p.set('q', q)
-    if (category) p.set('category', category)
-    p.set('status', status)
-    if (price === 'lt100') p.set('maxPrice', '100000000')
-    if (price === 'mid') { p.set('minPrice', '100000000'); p.set('maxPrice', '500000000') }
-    if (price === 'gt500') p.set('minPrice', '500000000')
-    navigate(`/properties?${p.toString()}`)
+    const query = q.trim().toLowerCase()
+    const found = published.filter(l =>
+      (!query || `${l.title} ${l.location} ${l.district} ${l.description}`.toLowerCase().includes(query))
+      && (!category || l.category === category)
+      && l.dealType === status
+    )
+    setResults(found)
+    setSearched(true)
+    document.getElementById('home-results')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+
+  const clearSearch = () => {
+    setSearched(false)
+    setResults([])
+    setQ(''); setCategory(''); setStatus('Buy')
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   return (
@@ -43,29 +50,21 @@ export default function Home() {
           <form className="hero-search" onSubmit={search}>
             <div className="hs-field">
               <MapPin size={16} />
-              <input value={q} onChange={e => setQ(e.target.value)} placeholder="[TYPE TO SEARCH]: e.g. Kampala, villa" />
+              <input value={q} onChange={e => setQ(e.target.value)} placeholder="What do you want to find?" />
             </div>
             <div className="hs-field">
               <Building2 size={16} />
               <select value={category} onChange={e => setCategory(e.target.value)}>
-                <option value="">[TYPE: ANY]</option>
-                <option>Land</option><option>Residential</option><option>Commercial</option>
-              </select>
-            </div>
-            <div className="hs-field">
-              <CircleDollarSign size={16} />
-              <select value={price} onChange={e => setPrice(e.target.value)}>
-                <option value="">[PRICE: ANY]</option>
-                <option value="lt100">Under UGX 100M</option>
-                <option value="mid">UGX 100M – 500M</option>
-                <option value="gt500">Above UGX 500M</option>
+                <option value="">TYPE: Any</option>
+                <option>Land</option><option>Apartments</option><option>Commercial</option><option>Standalone</option><option>Studio Rooms</option>
               </select>
             </div>
             <div className="hs-field">
               <User size={16} />
               <select value={status} onChange={e => setStatus(e.target.value)}>
-                <option value="Buy">[STATUS: BUY]</option>
-                <option value="Rent">[STATUS: RENT]</option>
+                <option value="Buy">STATUS: Buy</option>
+                <option value="Rent">STATUS: Rent</option>
+                <option value="Lease">STATUS: Lease</option>
               </select>
             </div>
             <button className="btn btn-primary" type="submit">
@@ -75,13 +74,48 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== FEATURED PROPERTIES ===== */}
-      <section style={{ padding: '54px 0 34px' }}>
+      {/* ===== RESULTS / FEATURED — same section, swaps based on search state ===== */}
+      <section id="home-results" style={{ padding: '54px 0 34px' }}>
         <div className="container">
-          <h2 className="sec-heading">Featured Properties</h2>
-          <div className="grid grid-4">
-            {featured.map(p => <PropertyCard key={p.id} property={p} />)}
-          </div>
+          {searched ? (
+            <>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12, marginBottom: 22 }}>
+                <h2 className="sec-heading" style={{ marginBottom: 0 }}>
+                  Search Results ({results.length})
+                </h2>
+                <button className="btn btn-ghost btn-sm" onClick={clearSearch}>
+                  <X size={14} /> Clear Search
+                </button>
+              </div>
+              {results.length === 0 ? (
+                <div className="card empty-state">
+                  <SearchX size={40} />
+                  <h3>No properties match your criteria</h3>
+                  <p className="section-sub">Try a different area, or let our agents hunt for you.</p>
+                  <a className="btn btn-primary" target="_blank" rel="noreferrer"
+                    href={waLink(`Hello, I'm looking for a property (${category || 'any type'}) in "${q || 'Uganda'}" to ${status === 'Rent' ? 'rent' : 'buy'}. Can you help?`)}>
+                    Ask an Agent on WhatsApp
+                  </a>
+                </div>
+              ) : (
+                <div className="grid grid-4">
+                  {results.map(p => <PropertyCard key={p.id} property={p} />)}
+                </div>
+              )}
+              <div style={{ textAlign: 'right', marginTop: 20 }}>
+                <Link className="section-link" to="/properties">
+                  Browse all listings with more filters <ArrowRight size={15} />
+                </Link>
+              </div>
+            </>
+          ) : (
+            <>
+              <h2 className="sec-heading">Featured Properties</h2>
+              <div className="grid grid-4">
+                {featured.map(p => <PropertyCard key={p.id} property={p} />)}
+              </div>
+            </>
+          )}
         </div>
       </section>
 

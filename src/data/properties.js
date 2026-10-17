@@ -12,7 +12,7 @@ export const seedProperties = [
     description: 'A stunning contemporary villa in the heart of Muyenga featuring a spacious sitting and dining area, modern fitted kitchen, master bedroom with walk-in closet, servant quarters and a paved compound with ample parking.',
     features: ['Tarmac road access', 'Borehole + NWSC water', 'Solar backup', 'Servant quarters', 'Wall fence', 'Title ready'],
     images: ['https://picsum.photos/seed/hunt-villa-1/800/560', 'https://picsum.photos/seed/hunt-villa-2/800/560', 'https://picsum.photos/seed/hunt-villa-3/800/560'],
-    lat: 0.283, lng: 32.617, agent: 'Sarah Nabukenya', agentPhone: '+256 700 000 001',
+    lat: 0.283, lng: 32.617, agent: 'Sarah Nabukenya', agentPhone: '+256 766 306 132',
   },
   {
     id: 'thp-002', title: 'Luxury 3-Bedroom Apartment, Naalya', category: 'Residential',
@@ -21,7 +21,7 @@ export const seedProperties = [
     description: 'Fully furnished executive apartment in a gated complex with swimming pool, gym, 24/7 security and backup generator. Ideal for expatriates and corporate tenants.',
     features: ['Swimming pool', 'Gym', '24/7 security', 'Backup generator', 'Furnished', 'Balcony'],
     images: ['https://picsum.photos/seed/hunt-apt-1/800/560', 'https://picsum.photos/seed/hunt-apt-2/800/560', 'https://picsum.photos/seed/hunt-apt-3/800/560'],
-    lat: 0.353, lng: 32.640, agent: 'Daniel Okello', agentPhone: '+256 700 000 002',
+    lat: 0.353, lng: 32.640, agent: 'Daniel Okello', agentPhone: '+256 766 306 132',
   },
   {
     id: 'thp-003', title: 'Prime Commercial Plot on Main Road', category: 'Land',
@@ -30,7 +30,7 @@ export const seedProperties = [
     description: 'Ideal commercial plot fronting a busy tarmac road in fast-growing Najjera. Perfect for a plaza, apartments or fuel station. Mailo title, ready for transfer.',
     features: ['Tarmac frontage', 'Mailo title', 'Commercial zone', 'Water & power on site'],
     images: ['https://picsum.photos/seed/hunt-plot-1/800/560', 'https://picsum.photos/seed/hunt-plot-2/800/560'],
-    lat: 0.367, lng: 32.592, agent: 'Grace Atim', agentPhone: '+256 700 000 003',
+    lat: 0.367, lng: 32.592, agent: 'Grace Atim', agentPhone: '+256 766 306 132',
   },
   {
     id: 'thp-004', title: 'Executive Office Space, Kampala Road', category: 'Commercial',
@@ -39,7 +39,7 @@ export const seedProperties = [
     description: 'Grade-A open-plan office floor in the CBD with boardroom, kitchenette, dedicated parking bays, standby generator and lift access.',
     features: ['Lift access', 'Standby generator', 'Parking bays', 'Boardroom', 'Fibre internet ready'],
     images: ['https://picsum.photos/seed/hunt-office-1/800/560', 'https://picsum.photos/seed/hunt-office-2/800/560'],
-    lat: 0.314, lng: 32.581, agent: 'The Hunt Team', agentPhone: '+256 700 000 000',
+    lat: 0.314, lng: 32.581, agent: 'The Hunt Team', agentPhone: '+256 766 306 132',
   },
   {
     id: 'thp-005', title: 'Lakeview Residential Land, Entebbe', category: 'Land',
@@ -48,7 +48,7 @@ export const seedProperties = [
     description: 'Gently sloping plot with partial Lake Victoria views, 10 minutes from Entebbe town. Located in an established neighbourhood with water and power available.',
     features: ['Partial lake view', 'Power & water nearby', 'Freehold title', 'Gated neighbourhood'],
     images: ['https://picsum.photos/seed/hunt-ebb-1/800/560', 'https://picsum.photos/seed/hunt-ebb-2/800/560'],
-    lat: 0.051, lng: 32.463, agent: 'Grace Atim', agentPhone: '+256 700 000 003',
+    lat: 0.051, lng: 32.463, agent: 'Grace Atim', agentPhone: '+256 766 306 132',
   },
   {
     id: 'thp-006', title: 'Family Bungalow in Gated Estate, Kira', category: 'Residential',
@@ -57,7 +57,7 @@ export const seedProperties = [
     description: 'Neat 3-bedroom bungalow with private compound in a family-friendly gated estate. Tarmacked access, children playground and community security.',
     features: ['Gated estate', 'Playground', 'Paved driveway', 'Water tank'],
     images: ['https://picsum.photos/seed/hunt-bung-1/800/560', 'https://picsum.photos/seed/hunt-bung-2/800/560'],
-    lat: 0.396, lng: 32.637, agent: 'Daniel Okello', agentPhone: '+256 700 000 002',
+    lat: 0.396, lng: 32.637, agent: 'Daniel Okello', agentPhone: '+256 766 306 132',
   },
   {
     id: 'thp-007', title: 'Serviced 2-Bedroom Apartment, Kyanja', category: 'Residential',
@@ -66,7 +66,7 @@ export const seedProperties = [
     description: 'Bright serviced apartment with DSTV, WiFi, weekly cleaning and secure parking. Walking distance to Kyanja trading centre.',
     features: ['Serviced', 'WiFi included', 'DSTV', 'Secure parking', 'Water included'],
     images: ['https://picsum.photos/seed/hunt-kyan-1/800/560', 'https://picsum.photos/seed/hunt-kyan-2/800/560'],
-    lat: 0.352, lng: 32.604, agent: 'Sarah Nabukenya', agentPhone: '+256 700 000 001',
+    lat: 0.352, lng: 32.604, agent: 'Sarah Nabukenya', agentPhone: '+256 766 306 132',
   },
   {
     id: 'thp-008', title: 'Commercial Building with Rentals, Ntinda', category: 'Commercial',
@@ -75,7 +75,7 @@ export const seedProperties = [
     description: 'Income-generating commercial block with 12 occupied rental units on three floors plus a shop on the ground floor. Currently yielding UGX 9M monthly.',
     features: ['12 rental units', 'Fully occupied', '9M/month income', 'Private mailo title'],
     images: ['https://picsum.photos/seed/hunt-ntinda-1/800/560', 'https://picsum.photos/seed/hunt-ntinda-2/800/560'],
-    lat: 0.344, lng: 32.612, agent: 'The Hunt Team', agentPhone: '+256 700 000 000',
+    lat: 0.344, lng: 32.612, agent: 'The Hunt Team', agentPhone: '+256 766 306 132',
   },
   {
     id: 'thp-009', title: 'Garden Plot with Mature Trees, Bugolobi', category: 'Land',
@@ -84,6 +84,6 @@ export const seedProperties = [
     description: 'Rare leafy residential plot in quiet Bugolobi cul-de-sac, ready for immediate construction of a dream home. All utilities at the boundary.',
     features: ['Cul-de-sac', 'All utilities at boundary', 'Freehold title', 'Mature trees'],
     images: ['https://picsum.photos/seed/hunt-bug-1/800/560'],
-    lat: 0.322, lng: 32.602, agent: 'Grace Atim', agentPhone: '+256 700 000 003',
+    lat: 0.322, lng: 32.602, agent: 'Grace Atim', agentPhone: '+256 766 306 132',
   },
 ]

@@ -1,36 +1,32 @@
 import { Link } from 'react-router-dom'
-import { BedDouble, Bath, Ruler, MapPin, MessageCircle } from 'lucide-react'
-import { formatUGX, waLink } from '../utils/whatsapp'
+import { MapPin, MessageCircle } from 'lucide-react'
+import { waLink } from '../utils/whatsapp'
+
+const compactUGX = (n) => {
+  if (n >= 1e9) return `UGX ${(n / 1e9).toFixed(1).replace(/\.0$/, '')}B`
+  return `UGX ${Math.round(n / 1e6)}M`
+}
 
 export default function PropertyCard({ property }) {
-  const img = property.images?.[0]
+  const p = property
+  const img = p.images?.[0]
+  const isRent = p.dealType === 'Rent'
   return (
     <article className="prop-card">
-      <Link to={`/property/${property.id}`} className="prop-img-wrap">
-        {img ? <img src={img} alt={property.title} loading="lazy" /> : <div className="img-placeholder">No photo yet</div>}
-        <span className={`badge ${property.dealType === 'Rent' ? 'badge-rent' : 'badge-buy'}`}>
-          For {property.dealType === 'Rent' ? 'Rent' : 'Sale'}
-        </span>
-        <span className="badge badge-cat">{property.category}</span>
+      <Link to={`/property/${p.id}`} className="prop-img-wrap" title={p.title}>
+        {img ? <img src={img} alt={p.title} loading="lazy" /> : <div className="img-placeholder">No photo yet</div>}
+        <span className={`badge ${isRent ? 'badge-rent' : 'badge-buy'}`}>FOR {isRent ? 'RENT' : 'SALE'}</span>
       </Link>
       <div className="prop-body">
-        <p className="prop-price">
-          {formatUGX(property.price)}{property.period === 'month' && <small> /month</small>}
-        </p>
-        <h3><Link to={`/property/${property.id}`}>{property.title}</Link></h3>
-        <p className="prop-loc"><MapPin size={14} /> {property.location}, {property.district}</p>
-        <div className="prop-meta">
-          {property.beds ? <span><BedDouble size={14} /> {property.beds} Beds</span> : null}
-          {property.baths ? <span><Bath size={14} /> {property.baths} Baths</span> : null}
-          {property.sizeLabel ? <span><Ruler size={14} /> {property.sizeLabel}</span> : null}
-        </div>
+        <p className="prop-price">{compactUGX(p.price)}{isRent && <small> /month</small>}</p>
+        <p className="prop-loc"><MapPin size={13} /> {p.location}, {p.district}, Uganda</p>
+        <h3><Link to={`/property/${p.id}`}>{p.title}</Link></h3>
         <div className="prop-actions">
-          <Link className="btn btn-primary btn-sm" to={`/property/${property.id}`}>View Details</Link>
-          <a
-            className="btn btn-whatsapp btn-sm"
-            href={waLink(`Hello, I'm interested in "${property.title}" (${formatUGX(property.price)}). Is it still available?`)}
-            target="_blank" rel="noreferrer"
-          ><MessageCircle size={15} /> WhatsApp</a>
+          <Link className="btn btn-ghost btn-sm" to={`/property/${p.id}`}>View Details</Link>
+          <a className="btn btn-ghost btn-sm" target="_blank" rel="noreferrer"
+            href={waLink(`Hello, I'm interested in "${p.title}" (${compactUGX(p.price)}${isRent ? '/month' : ''}). Is it still available?`)}>
+            <MessageCircle size={14} /> WhatsApp Inquiry
+          </a>
         </div>
       </div>
     </article>

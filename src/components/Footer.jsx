@@ -1,11 +1,10 @@
 import { Link } from 'react-router-dom'
-import { Home, MapPin, Phone, Mail, Apple, Play } from 'lucide-react'
-import { COMPANY_PHONE_DISPLAY } from '../utils/whatsapp'
+import { Facebook, Instagram, Youtube, MessageCircle, MapPin, Phone, Mail } from 'lucide-react'
+import { waLink, COMPANY_PHONE_DISPLAY } from '../utils/whatsapp'
 
-const quickLinks = [
-  ['/blog', 'Blog'], ['/about', 'About'], ['/contact', 'Contact'],
-]
-const legalLinks = [['/privacy-policy', 'Privacy Policy'], ['/terms', 'Terms of Service']]
+const quickLinks = [['/', 'Home'], ['/properties', 'Listings'], ['/about', 'About Us'], ['/blog', 'Blog']]
+const legalLinks = [['/privacy-policy', 'Privacy Policy'], ['/terms', 'Terms of Service'], ['/contact', 'Contact']]
+const partnerLinks = [['/contact', 'Become a Partner'], ['/contact', 'Agent Program'], ['/contact', 'Advertise With Us']]
 
 export default function Footer() {
   return (
@@ -13,29 +12,33 @@ export default function Footer() {
       <div className="container">
         <div className="footer-grid">
           <div>
-            <div className="footer-brand"><span className="brand-mark"><Home size={18} /></span>The Hunt Properties</div>
-            <p>Uganda's trusted marketplace for verified land, houses and apartments. Find it. Hunt it. Own it.</p>
-            {/* App Launch Promotion Hub — SRS module: "Coming Soon" store badges */}
-            <div className="store-badges">
-              <a className="store-badge" href="#" onClick={e => e.preventDefault()}><Apple size={20} /><span><small>Coming soon</small><strong>App Store</strong></span></a>
-              <a className="store-badge" href="#" onClick={e => e.preventDefault()}><Play size={20} /><span><small>Coming soon</small><strong>Google Play</strong></span></a>
-            </div>
-          </div>
-          <div>
             <h4>Quick Links</h4>
             <ul className="footer-links">
-              {quickLinks.map(([to, label]) => <li key={to}><Link to={to}>{label}</Link></li>)}
+              {quickLinks.map(([to, label]) => <li key={label}><Link to={to}>{label}</Link></li>)}
             </ul>
           </div>
           <div>
-            <h4>Legal</h4>
+            <h4>Legal Pages</h4>
+            <p style={{ fontSize: '.76rem', marginBottom: 10 }}>(AdSense Ready)</p>
             <ul className="footer-links">
-              {legalLinks.map(([to, label]) => <li key={to}><Link to={to}>{label}</Link></li>)}
+              {legalLinks.map(([to, label]) => <li key={label}><Link to={to}>{label}</Link></li>)}
             </ul>
           </div>
           <div>
-            <h4>Contact</h4>
+            <h4>Partner Pitch Portal</h4>
             <ul className="footer-links">
+              {partnerLinks.map(([to, label]) => <li key={label}><Link to={to}>{label}</Link></li>)}
+            </ul>
+          </div>
+          <div>
+            <h4>Connect With Us</h4>
+            <div className="social-row">
+              <a className="social-circle" href="#" aria-label="Facebook" onClick={e => e.preventDefault()}><Facebook size={17} /></a>
+              <a className="social-circle" href="#" aria-label="Instagram" onClick={e => e.preventDefault()}><Instagram size={17} /></a>
+              <a className="social-circle" href="#" aria-label="YouTube" onClick={e => e.preventDefault()}><Youtube size={17} /></a>
+              <a className="social-circle" href={waLink('Hello The Hunt Properties!')} target="_blank" rel="noreferrer" aria-label="WhatsApp"><MessageCircle size={17} /></a>
+            </div>
+            <ul className="footer-links" style={{ marginTop: 16 }}>
               <li><MapPin size={14} /> Plot 12, Kampala Road, Kampala</li>
               <li><Phone size={14} /> {COMPANY_PHONE_DISPLAY}</li>
               <li><Mail size={14} /> info@thehuntproperties.com</li>

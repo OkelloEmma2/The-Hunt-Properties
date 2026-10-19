@@ -1,4 +1,5 @@
-import { MapPin, Building2, Apple, Play } from 'lucide-react'
+import { MapPin, Building2 } from 'lucide-react'
+import StoreBadges from '../components/StoreBadges'
 
 const apps = [
   {
@@ -28,10 +29,7 @@ export default function AppPromo() {
                 <span className="badge-soon">Coming Soon</span>
                 <h3>{a.name}</h3>
                 <p className="section-sub" style={{ fontSize: '.9rem' }}>{a.desc}</p>
-                <div className="store-badges">
-                  <a className="store-badge" href="#" onClick={e => e.preventDefault()}><Apple size={22} /><span><small>Coming soon on</small><strong>App Store</strong></span></a>
-                  <a className="store-badge" href="#" onClick={e => e.preventDefault()}><Play size={22} /><span><small>Get it soon on</small><strong>Google Play</strong></span></a>
-                </div>
+                <StoreBadges />
               </div>
             </div>
           ))}

@@ -2,12 +2,13 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
   MapPin, Building2, User, Search, X, SearchX, ArrowRight,
-  HousePlus, Home as HomeIcon, Apple, Play,
+  HousePlus, Home as HomeIcon,
 } from 'lucide-react'
 import { useListings } from '../context/ListingsContext'
 import PropertyCard from '../components/PropertyCard'
 import AdBanner from '../components/AdBanner'
 import { waLink } from '../utils/whatsapp'
+import StoreBadges from '../components/StoreBadges'
 
 export default function Home() {
   const { listings } = useListings()
@@ -142,10 +143,7 @@ export default function Home() {
             <div>
               <h3>The House Hunt App</h3>
               <p>Geo-location discovery, map exploration and saved alerts — coming soon to your phone.</p>
-              <div className="store-badges">
-                <a className="store-badge" href="#" onClick={e => e.preventDefault()}><Apple size={20} /><span><small>Coming soon on</small><strong>App Store</strong></span></a>
-                <a className="store-badge" href="#" onClick={e => e.preventDefault()}><Play size={20} /><span><small>Get it soon on</small><strong>Google Play</strong></span></a>
-              </div>
+              <StoreBadges />
             </div>
           </div>
 

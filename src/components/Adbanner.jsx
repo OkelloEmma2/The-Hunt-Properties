@@ -1,3 +1,4 @@
+import { AppleLogo, GooglePlayLogo } from '../components/StoreBadges'
 export default function AdBanner({ label = 'Advertisement' }) {
   return (
     <div className="ad-banner" aria-label={label}>

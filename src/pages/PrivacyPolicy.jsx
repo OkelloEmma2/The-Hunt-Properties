@@ -8,7 +8,7 @@ export default function PrivacyPolicy() {
       <p className="section-sub" style={{ marginBottom: 28 }}>Last updated: October 2026</p>
       <div className="prose card" style={{ padding: 30 }}>
         <h2>1. Who we are</h2>
-        <p>The Hunt Properties Limited ("we", "our") operates this website and related services. For any privacy questions, contact us at info@thehuntproperties.com.</p>
+        <p>The Hunt Properties Limited ("we", "our") operates this website and related services. For any privacy questions, contact us at huntpropertiessales@gmail.com.</p>
         <h2>2. Information we collect</h2>
         <p>Contact details you submit through our forms (name, phone number, email address), property details, photographs and verification documents you upload when listing property, and basic usage data such as pages visited.</p>
         <h2>3. How we use your information</h2>

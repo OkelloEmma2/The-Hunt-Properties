@@ -3,7 +3,7 @@ import { Save, X } from 'lucide-react'
 import { useListings } from '../context/ListingsContext'
 import { DISTRICTS } from '../data/properties'
 
-const CATEGORIES = ['Land', 'Residential', 'Commercial']
+const CATEGORIES = ['Land', 'Residential', 'Commercial', 'Standalone', 'Studio Room', 'AirBnB','Apartments', 'Double Room']
 const initial = {
   title: '', category: 'Residential', dealType: 'Buy', location: '', district: 'Kampala',
   price: '', beds: '', baths: '', sizeLabel: '', description: '',

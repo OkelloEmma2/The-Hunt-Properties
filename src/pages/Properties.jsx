@@ -4,7 +4,7 @@ import { SearchX } from 'lucide-react'
 import { useListings } from '../context/ListingsContext'
 import SearchFilters from '../components/SearchFilters'
 import PropertyCard from '../components/PropertyCard'
-import AdBanner from '../components/Adbanner'
+import AdBanner from '../components/AdBanner'
 
 export default function Properties() {
   const [params] = useSearchParams()
@@ -39,7 +39,7 @@ export default function Properties() {
         <div className="container">
           <SearchFilters />
           <div className="results-bar">
-            <p className="section-sub">{results.length} propert{results.length === 1 ? 'y' : 'ies'} found</p>
+            <p className="section-sub">{results.length} property{results.length === 1 ? 'y' : 'ies'} found</p>
           </div>
           {results.length === 0 ? (
             <div className="card empty-state">

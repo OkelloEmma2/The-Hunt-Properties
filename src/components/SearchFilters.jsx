@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router-dom'
 import { Search, RotateCcw } from 'lucide-react'
 import { DISTRICTS } from '../data/properties'
 
-const CATEGORIES = ['Land', 'Residential', 'Commercial']
+const CATEGORIES = ['Land', 'Residential', 'Commercial','Standalone', 'Studio Room', 'AirBnB','Apartments', 'Double Room']
 const STATUSES = ['Buy', 'Rent']
 
 // SRS: "Dynamic multi-attribute search filtering by Location, Property Category,

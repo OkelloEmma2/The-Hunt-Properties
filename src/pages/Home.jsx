@@ -57,7 +57,7 @@ export default function Home() {
               <Building2 size={16} />
               <select value={category} onChange={e => setCategory(e.target.value)}>
                 <option value="">TYPE: Any</option>
-                <option>Land</option><option>Apartments</option><option>Commercial</option><option>Standalone</option><option>Studio Room</option><option>AirBnB</option><option>Residential</option><option>Double Room</option>
+                <option>Apartment</option><option>Villa</option><option>Land</option><option>Commercial</option><option>Standalone</option><option>Studio Rooms</option><option>AirBnB</option><option>Residentials</option><option>Double Rooms</option><option>Farms</option><option>Warehouses</option><option>Hotels</option><option>Hostels</option><option>Guest Houses</option><option>Mansions</option><option>Townhouses</option><option>Cottages</option><option>Bungalows</option><option>Duplexes</option><option>Triplexes</option>
               </select>
             </div>
             <div className="hs-field">

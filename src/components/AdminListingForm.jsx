@@ -3,8 +3,7 @@ import { useListings } from '../context/ListingsContext'
 import { DISTRICTS } from '../data/properties'
 import { formatPrice } from '../utils/whatsapp'
 
-// ← keep identical to the "Type" options in your search dropdowns
-const CATEGORIES = ['House', 'Apartment', 'Villa', 'Land', 'Commercial']
+const CATEGORIES = ['Apartment', 'Villa', 'Land', 'Commercial','Standalone','Studio Rooms','AirBnB','Residentials','Double Rooms','Farms','Warehouses','Hotels','Hostels','Guest Houses','Mansions','Townhouses','Cottages','Bungalows','Duplexes','Triplexes']
 
 const EMPTY = {
   title: '',
@@ -144,7 +143,7 @@ export default function AdminListingForm({ editing = null, onDone = () => {} }) 
       <label>
         Price *
         <input type="number" min="0" value={form.price} onChange={set('price')}
-          placeholder={form.currency === 'USD' ? 'e.g. 1200' : 'e.g. 950000000'} />
+          placeholder={form.currency === 'USD' ? 'e.g. 1200' : 'e.g. 950000'} />
       </label>
 
       <p className="alf-preview">

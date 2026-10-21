@@ -5,6 +5,7 @@ import { useListings } from '../context/ListingsContext'
 import PropertyCard from '../components/PropertyCard'
 import { formatUGX, waLink, COMPANY_PHONE_DISPLAY } from '../utils/whatsapp'
 
+
 function Gallery({ images, title }) {
   const [i, setI] = useState(0)
   const imgs = images?.length ? images : [null]
@@ -97,14 +98,6 @@ export default function PropertyDetails() {
                   <ul className="feature-list">{p.features.map(f => <li key={f}>{f}</li>)}</ul>
                 </>
               )}
-              {/* Interactive map locator (OpenStreetMap — no API key needed) */}
-              <div className="map-wrap">
-                <iframe
-                  title={`Map of ${p.title}`}
-                  src={`https://www.openstreetmap.org/export/embed.html?bbox=${encodeURIComponent(bbox)}&layer=mapnik&marker=${p.lat},${p.lng}`}
-                  loading="lazy"
-                />
-              </div>
             </div>
           </div>
           <aside className="card agent-card">

@@ -408,3 +408,39 @@ h1,h2,h3,h4{color:var(--g950);line-height:1.22;font-weight:700}
   .hero-search .btn{padding:11px 12px}
   .hero-search .btn .btn-label{display:none}
 }
+
+/* ============ ADMIN LISTING FORM (alf) ============ */
+.alf{display:grid;gap:16px}
+.alf label{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;
+  color:var(--ink,#0f172a);letter-spacing:.02em}
+.alf input,.alf select,.alf textarea{
+  width:100%;padding:11px 14px;border:1.5px solid var(--line,#e2e8f0);border-radius:10px;
+  font:inherit;font-size:14px;background:#fff;color:var(--ink,#0f172a);
+  transition:border-color .15s ease,box-shadow .15s ease}
+.alf input:focus,.alf select:focus,.alf textarea:focus{
+  outline:none;border-color:var(--g600,#16a34a);box-shadow:0 0 0 3px rgba(22,163,74,.12)}
+.alf textarea{resize:vertical;min-height:110px}
+.alf .alf-grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.alf .alf-preview{margin:0;font-size:13px;color:#64748b;background:#f8fafc;
+  border:1px dashed var(--line,#e2e8f0);border-radius:10px;padding:10px 14px}
+.alf .alf-preview strong{color:#047857}
+.alf .alf-saved{margin:0;padding:11px 14px;border-radius:10px;background:#ecfdf5;
+  border:1px solid #a7f3d0;color:#047857;font-weight:600;font-size:14px}
+.alf .alf-file{padding:10px;border:1.5px dashed var(--line,#e2e8f0);border-radius:10px;
+  background:#f8fafc;cursor:pointer}
+.alf .alf-photos{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap}
+.alf .alf-thumb{position:relative}
+.alf .alf-thumb img{width:92px;height:72px;object-fit:cover;border-radius:8px;
+  border:1px solid var(--line,#e2e8f0)}
+.alf .alf-thumb button{position:absolute;top:-7px;right:-7px;width:22px;height:22px;
+  border-radius:50%;border:none;background:#dc2626;color:#fff;font-weight:700;cursor:pointer;
+  font-size:13px;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 2px 6px rgba(0,0,0,.25)}
+.alf .alf-check{display:flex;flex-direction:row;align-items:center;gap:10px}
+.alf .alf-check input{width:18px;height:18px;accent-color:var(--g600,#16a34a);cursor:pointer}
+.alf .alf-submit{justify-self:start;padding:13px 26px;background:var(--g600,#15803d);
+  color:#fff;border:none;border-radius:10px;font-weight:700;font-size:14px;
+  letter-spacing:.03em;cursor:pointer;transition:background .15s ease,transform .1s ease}
+.alf .alf-submit:hover{background:var(--g700,#166534)}
+.alf .alf-submit:active{transform:scale(.98)}
+@media (max-width:640px){.alf .alf-grid2{grid-template-columns:1fr}}

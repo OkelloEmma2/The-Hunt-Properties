@@ -3,6 +3,30 @@ import { useListings } from '../context/ListingsContext'
 import { DISTRICTS } from '../data/properties'
 import { formatPrice } from '../utils/whatsapp'
 
+const MAX_PHOTOS = 8   // ← change this one number anytime in the future
+
+// Shrinks a photo to max 1280px-wide JPEG so 8 photos fit in browser storage
+function compressImage(file, maxWidth = 1280, quality = 0.72) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader()
+    reader.onload = () => {
+      const img = new Image()
+      img.onload = () => {
+        const scale = Math.min(1, maxWidth / img.width)
+        const canvas = document.createElement('canvas')
+        canvas.width = Math.round(img.width * scale)
+        canvas.height = Math.round(img.height * scale)
+        canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height)
+        resolve(canvas.toDataURL('image/jpeg', quality))
+      }
+      img.onerror = () => reject(new Error('load error'))
+      img.src = reader.result
+    }
+    reader.onerror = () => reject(new Error('read error'))
+    reader.readAsDataURL(file)
+  })
+}
+
 const CATEGORIES = ['Apartment', 'Villa', 'Land', 'Commercial','Standalone','Studio Rooms','AirBnB','Residentials','Double Rooms','Farms','Warehouses','Hotels','Hostels','Guest Houses','Mansions','Townhouses','Cottages','Bungalows','Duplexes','Triplexes']
 
 const EMPTY = {
@@ -46,16 +70,22 @@ export default function AdminListingForm({ editing = null, onDone = () => {} }) 
   const set = (key) => (e) =>
     setForm(f => ({ ...f, [key]: e.target.type === 'checkbox' ? e.target.checked : e.target.value }))
 
-  const handlePhoto = (e) => {
-    Array.from(e.target.files || []).forEach(file => {
-      if (images.length + 1 > 4) { alert('Maximum of 4 photos per property.'); return }
-      if (file.size > 1024 * 1024) { alert(`"${file.name}" is over 1MB — please compress it first.`); return }
-      const reader = new FileReader()
-      reader.onload = () => setImages(prev => (prev.length >= 4 ? prev : [...prev, reader.result]))
-      reader.readAsDataURL(file)
-    })
-    e.target.value = ''
+const handlePhoto = async (e) => {
+  const files = Array.from(e.target.files || [])
+  for (const file of files) {
+    if (images.length >= MAX_PHOTOS) {
+      alert(`Maximum of ${MAX_PHOTOS} photos per property.`)
+      break
+    }
+    try {
+      const dataUrl = await compressImage(file)
+      setImages(prev => (prev.length >= MAX_PHOTOS ? prev : [...prev, dataUrl]))
+    } catch {
+      alert(`Could not process "${file.name}" — try a different image.`)
+    }
   }
+  e.target.value = ''
+}
 
   const removePhoto = (i) => setImages(prev => prev.filter((_, idx) => idx !== i))
 
@@ -125,8 +155,8 @@ export default function AdminListingForm({ editing = null, onDone = () => {} }) 
         <label>
           Currency *
           <select value={form.currency} onChange={set('currency')}>
-            <option value="UGX">UGX — Uganda Shillings</option>
-            <option value="USD">USD — US Dollars</option>
+            <option value="UGX">UGX</option>
+            <option value="USD">USD</option>
           </select>
         </label>
         {form.dealType === 'rent' && (
@@ -178,7 +208,7 @@ export default function AdminListingForm({ editing = null, onDone = () => {} }) 
       </label>
 
       <div>
-        <label>Photos (up to 4, max 1MB each)</label>
+        <label>Photos (up to {MAX_PHOTOS} — large photos are auto-compressed)</label>
         <input type="file" accept="image/*" multiple onChange={handlePhoto} className="alf-file" />
         {images.length > 0 && (
           <div className="alf-photos">

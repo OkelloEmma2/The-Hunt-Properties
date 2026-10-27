@@ -156,10 +156,11 @@ h1,h2,h3,h4{color:var(--g950);line-height:1.22;font-weight:700}
 .cta-band p{color:var(--g200);margin-top:8px;position:relative;z-index:1}
 .cta-band .btn{position:relative;z-index:1}
 
-/* AdSense */
-.ad-banner{border:1.5px dashed var(--g200);background:var(--g50);border-radius:var(--radius);padding:10px;position:relative}
-.ad-tag{position:absolute;top:-9px;left:16px;background:var(--white);padding:0 8px;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700}
-.ad-slot{height:90px;display:grid;place-items:center;color:var(--muted);font-size:.85rem}
+/* ============ GOOGLE ADSENSE UNITS ============ */
+.ad-wrap{display:block;width:100%;max-width:960px;margin:26px auto;text-align:center}
+.ad-label{display:block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:#94a3b8;margin-bottom:6px}
+.ad-wrap ins{overflow:hidden}
 
 /* App promo */
 .app-card{display:flex;gap:22px;align-items:flex-start;transition:.25s}
@@ -445,8 +446,3 @@ h1,h2,h3,h4{color:var(--g950);line-height:1.22;font-weight:700}
 .alf .alf-submit:active{transform:scale(.98)}
 @media (max-width:640px){.alf .alf-grid2{grid-template-columns:1fr}}
 
-/* ============ GOOGLE ADSENSE UNITS ============ */
-.ad-wrap{display:block;width:100%;max-width:960px;margin:26px auto;text-align:center}
-.ad-label{display:block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;
-  color:#94a3b8;margin-bottom:6px}
-.ad-wrap ins{overflow:hidden}

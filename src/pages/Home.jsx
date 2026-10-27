@@ -150,7 +150,6 @@ export default function Home() {
 
         </div>
       </section>
-  <AdUnit slot="8698060663" />
       <div className="container" style={{ paddingBottom: 20 }}><AdBanner /></div>
     </>
   )

@@ -9,6 +9,7 @@ import PropertyCard from '../components/PropertyCard'
 import AdBanner from '../components/AdBanner'
 import { waLink } from '../utils/whatsapp'
 import StoreBadges from '../components/StoreBadges'
+import AdUnit from '../components/AdUnit'
 
 export default function Home() {
   const { listings } = useListings()
@@ -149,8 +150,7 @@ export default function Home() {
 
         </div>
       </section>
-
-      {/* ===== ADSENSE SLOT (required by SRS) ===== */}
+  <AdUnit slot="8698060663" />
       <div className="container" style={{ paddingBottom: 20 }}><AdBanner /></div>
     </>
   )

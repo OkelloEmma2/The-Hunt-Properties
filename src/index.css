@@ -444,3 +444,9 @@ h1,h2,h3,h4{color:var(--g950);line-height:1.22;font-weight:700}
 .alf .alf-submit:hover{background:var(--g700,#166534)}
 .alf .alf-submit:active{transform:scale(.98)}
 @media (max-width:640px){.alf .alf-grid2{grid-template-columns:1fr}}
+
+/* ============ GOOGLE ADSENSE UNITS ============ */
+.ad-wrap{display:block;width:100%;max-width:960px;margin:26px auto;text-align:center}
+.ad-label{display:block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:#94a3b8;margin-bottom:6px}
+.ad-wrap ins{overflow:hidden}
